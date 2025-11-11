@@ -1,0 +1,15 @@
+name: quiz_app
+description: "2024技能大赛刷题App"
+version: 1.0.0
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/questions.json
