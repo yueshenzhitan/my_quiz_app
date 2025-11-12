@@ -1,0 +1,27 @@
+# codemagic.yaml
+workflows:
+  android-release:
+    name: Android Release Build
+    # 使用的 Flutter 版本
+    environment:
+      flutter: "3.22.0"
+      xcode: latest
+      cocoapods: 1.14.3
+    # 构建前执行的脚本
+    scripts:
+      - name: Install dependencies
+        script: |
+          cd $FCI_BUILD_DIR
+          flutter pub get
+      - name: Build APK
+        script: |
+          cd $FCI_BUILD_DIR
+          flutter build apk --release
+    # 构建后的产物
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
+    # 构建后通知方式（可选）
+    publishing:
+      email:
+        recipients:
+          - 642588250@qq.com # 请替换成你自己的邮箱
